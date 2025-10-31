@@ -1,0 +1,52 @@
+{
+	"name": "template-sketches",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"lygia": "npx rimraf ./lygia && node -e \"require('fs').mkdirSync('./lygia', {recursive:true});\" && npx degit https://github.com/patriciogonzalezvivo/lygia.git lygia",
+		"postinstall": "npm run lygia",
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"prepare": "husky",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"unit": "vitest run ./test/unit ",
+		"test": "vitest run"
+	},
+	"devDependencies": {
+		"@eslint/css": "^0.14.0",
+		"@eslint/js": "^9.38.0",
+		"@eslint/json": "^0.13.2",
+		"@eslint/markdown": "^7.5.0",
+		"@playwright/test": "^1.56.1",
+		"@types/node": "^24.9.2",
+		"@types/three": "^0.180.0",
+		"eslint": "^9.38.0",
+		"eslint-config-prettier": "^10.1.8",
+		"globals": "^16.4.0",
+		"husky": "^9.1.7",
+		"jsdom": "^27.1.0",
+		"prettier": "^3.6.2",
+		"typescript": "~5.9.3",
+		"typescript-eslint": "^8.46.2",
+		"vite": "^7.1.7",
+		"vite-plugin-glsl": "^1.5.4",
+		"vitest": "^4.0.5"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.16",
+		"joeat-utils": "github:Jonathan-J8/joeat-utils#dist-only",
+		"tailwindcss": "^4.1.16",
+		"three": "^0.180.0"
+	},
+	"prettier": {
+		"useTabs": true,
+		"singleQuote": true,
+		"trailingComma": "all",
+		"printWidth": 100,
+		"tabWidth": 4,
+		"semi": true
+	}
+}
