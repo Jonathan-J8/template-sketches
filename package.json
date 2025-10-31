@@ -3,10 +3,14 @@
 	"private": true,
 	"version": "1.0.0",
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Jonathan-J8/template-sketches"
+	},
 	"scripts": {
 		"lygia": "npx rimraf ./lygia && node -e \"require('fs').mkdirSync('./lygia', {recursive:true});\" && npx degit https://github.com/patriciogonzalezvivo/lygia.git lygia",
 		"postinstall": "npm run lygia",
-		"dev": "vite",
+		"dev": "vite ",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"prepare": "husky",

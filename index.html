@@ -4,38 +4,39 @@
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/ico" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Template-sketches</title>
-		<meta name="description" content="" />
-		<meta property="og:title" content="Sunlines" />
+		<title>%VITE_TITLE%</title>
+		<meta name="description" content="%VITE_DESCRIPTION%" />
+		<meta property="og:title" content="%VITE_TITLE%" />
+		<meta property="og:description" content="%VITE_DESCRIPTION%" />
 		<meta property="og:locale" content="es_ES" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://jonathan-j8.github.io/template-sketches/" />
-		<meta property="og:description" content="" />
-		<meta
-			property="og:image"
-			content="https://jonathan-j8.github.io/template-sketches/banner.png"
-		/>
-		<meta
-			property="og:video"
-			content="https://jonathan-j8.github.io/template-sketches/showcase.mp4"
-		/>
+		<meta property="og:url" content="%VITE_HOST%%VITE_BASE_URL%" />
+		<meta property="og:image" content="%VITE_HOST%%VITE_BASE_URL%/banner.png" />
+		<meta property="og:video" content="%VITE_HOST%%VITE_BASE_URL%/showcase.mp4" />
 	</head>
-	<body>
+	<body class="text-gray-800 bg-red-300">
 		<canvas id="three" class="fixed inset-0 w-screen h-screen bg-transparent"></canvas>
 
-		<nav class="fixed top-0 left-0 m-2 inline-flex gap-2">
-			<a
-				href="javascript:history.back()"
-				class="py-2 px-4 uppercase rounded-full bg-red-300 opacity-90"
-			>
-				&#8592;
-			</a>
+		<nav class="fixed top-2 left-0">
+			<a href="javascript:history.back()" class="px-4 uppercase rounded-full"> &#8592; </a>
 		</nav>
 
-		<header class="fixed bottom-0 left-0 m-4 text-sm text-gray-500 text-left font-extralight">
-			<h1 class="text-xl">Template-sketches</h1>
-			<a href="https://joeat.xyz" target="_blank" class="underline">made by joeat.xyz</a>
+		<header class="fixed bottom-0 left-0 m-4 font-extralight">
+			<h1 class="text-lg uppercase">%VITE_TITLE%</h1>
+			<p class="max-w-sm text-xs">%VITE_DESCRIPTION%</p>
+			<a
+				href="https://github.com/Jonathan-J8/template-sketches"
+				target="_blank"
+				class="underline text-sm"
+				>repository</a
+			>
 		</header>
+		<a
+			href="https://joeat.xyz"
+			target="_blank"
+			class="underline fixed bottom-0 right-0 m-4 font-extralight text-sm"
+			>made by joeat.xyz</a
+		>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>

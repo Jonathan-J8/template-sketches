@@ -43,6 +43,8 @@ const camera = new CameraWrapper({
 	Quaternion,
 });
 
+animator.play(renderer.instance);
+
 // EVENT LISTENERS
 const mouse = new PointerTracker({ camera: camera.instance, Raycaster, Plane, Vector2, Vector3 });
 canvas.addEventListener('pointermove', mouse.onMove, false);
@@ -54,7 +56,6 @@ window.addEventListener('scrollend', mouse.onScroll, false);
 
 // GUI
 const gui = new GUI();
-// gui.close();
 animator.debug(gui);
 resizer.debug(gui);
 renderer.debug(gui);
@@ -78,8 +79,8 @@ onHotReload(() => {
 });
 
 // HOOK
-const useEngine = () => {
+const useThree = () => {
 	return { gui, canvas, animator, resizer, renderer, scene, camera, mouse };
 };
 
-export default useEngine;
+export default useThree;
