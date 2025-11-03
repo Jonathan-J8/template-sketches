@@ -7,6 +7,7 @@ import {
 	SceneWrapper,
 } from 'joeat-utils';
 import {
+	OrthographicCamera,
 	PerspectiveCamera,
 	Plane,
 	Quaternion,
@@ -27,23 +28,27 @@ if (!canvas || !(canvas instanceof HTMLCanvasElement))
 
 // THREE
 const threeRenderer = new WebGLRenderer({ canvas, alpha: true, antialias: true });
-const threeCamera = new PerspectiveCamera(75, 2, 0.1, 1000);
 const threeScene = new Scene();
-const threeControls = new OrbitControls(threeCamera, canvas);
+const perspective = new PerspectiveCamera(75, 2, 0.1, 1000);
+const orthographic = new OrthographicCamera(-1, 1, 1, -1, 0.1, 1000);
+const controls = new OrbitControls(perspective, canvas);
 
 // WRAPPERS & EMITTERS
 const animator = new Animator();
 const resizer = new Resizer(canvas);
 const scene = new SceneWrapper({ instance: threeScene });
-const renderer = new RendererWrapper({ instance: threeRenderer, EffectComposer, Vector2 });
+const renderer = new RendererWrapper({
+	instance: threeRenderer,
+	Vector2,
+	EffectComposer,
+});
 const camera = new CameraWrapper({
-	instance: threeCamera,
-	controls: threeControls,
+	controls: controls,
+	perspective,
+	orthographic,
 	Vector3,
 	Quaternion,
 });
-
-animator.play(renderer.instance);
 
 // EVENT LISTENERS
 const mouse = new PointerTracker({ camera: camera.instance, Raycaster, Plane, Vector2, Vector3 });

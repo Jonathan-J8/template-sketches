@@ -11,8 +11,8 @@
 		<meta property="og:locale" content="es_ES" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="%VITE_HOST%%VITE_BASE_URL%" />
-		<meta property="og:image" content="%VITE_HOST%%VITE_BASE_URL%/banner.png" />
-		<meta property="og:video" content="%VITE_HOST%%VITE_BASE_URL%/showcase.mp4" />
+		<meta property="og:image" content="%VITE_HOST%%VITE_BASE_URL%%VITE_TITLE%.png" />
+		<meta property="og:video" content="%VITE_HOST%%VITE_BASE_URL%%VITE_TITLE%.mp4" />
 	</head>
 	<body class="text-gray-800 bg-red-300">
 		<canvas id="three" class="fixed inset-0 w-screen h-screen bg-transparent"></canvas>
@@ -22,7 +22,7 @@
 		</nav>
 
 		<header class="fixed bottom-0 left-0 m-4 font-extralight">
-			<h1 class="text-lg uppercase">%VITE_TITLE%</h1>
+			<h1 class="text-lg uppercase">%VITE_TITLE% v%VITE_VERSION%</h1>
 			<p class="max-w-sm text-xs">%VITE_DESCRIPTION%</p>
 			<a
 				href="https://github.com/Jonathan-J8/template-sketches"
