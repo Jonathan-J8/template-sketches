@@ -26,13 +26,29 @@ A modern, production-ready template repository for creating WebGL sketches and c
 
 ## 🚀 Quick Start
 
-    ```bash
-    git clone https://github.com/Jonathan-J8/template-sketches.git
-    cd template-sketches
-    npm install
-    npm run dev
-    ```
-    Open [http://localhost:8080](http://localhost:8080) to view your sketch.
+1. **Clone/Install/Run**
+
+```bash
+git clone https://github.com/Jonathan-J8/template-sketches.git
+cd template-sketches
+npm install
+npm run dev
+```
+
+Open [http://localhost:8080/template-sketches/](http://localhost:8080/template-sketches) to view your sketch.
+
+2. **Configure environment variables**
+
+Change the `.env` variables according to your project:
+
+```env
+VITE_TITLE=$npm_package_name           # Site title reflected in index.html
+VITE_VERSION=$npm_package_version      # Project version reflected in index.html
+VITE_DESCRIPTION=Your project description  # Site description in index.html
+VITE_PORT=8080                         # Vite dev server port
+VITE_HOST=http://localhost:$VITE_PORT  # For local development
+VITE_BASE_URL=/$npm_package_name/      # For GitHub Pages, use / for basic hosting
+```
 
 ## 📁 Project Structure
 
@@ -85,15 +101,6 @@ This template includes `joeat-utils`, a wrapper around Three.js that simplifies 
 See [useThree.ts](./src/hooks/useThree.ts) and [main.ts](./src/main.ts) to see how it integrates or replace it with your own Three.js setup.
 
 The `joeat-utils` library is **optional** - you can use vanilla Three.js if you prefer.
-
-## 🔧 Configuration
-
-### Environment Variables
-
-```env
-VITE_PORT=8080
-VITE_BASE_URL=/
-```
 
 ## 📦 Deployment
 
