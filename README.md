@@ -49,18 +49,18 @@ A modern, production-ready template repository for creating WebGL sketches and c
 
 ## 📁 Project Structure
 
-```
+```markdown
 ├── src/
-│   ├── main.ts          # Main application entry point
-│   ├── style.css        # Global styles
-│   ├── components/      # Reusable Three.js components
-│   └── hooks/           # Custom React-style hooks for Three.js
-├── lygia/               # Shader library (auto-downloaded)
+│ ├── main.ts # Main application entry point
+│ ├── style.css # Global styles
+│ ├── components/ # Reusable Three.js components
+│ └── hooks/ # Custom React-style hooks for Three.js
+├── lygia/ # Shader library (auto-downloaded)
 ├── tests/
-│   ├── e2e/            # End-to-end tests
-│   └── unit/           # Unit tests
-├── public/             # Static assets
-└── playwright-report/  # Test reports and media
+│ ├── e2e/ # End-to-end tests
+│ └── unit/ # Unit tests
+├── public/ # Static assets
+└── playwright-report/ # Test reports and media
 ```
 
 ## 🎯 Available Scripts
