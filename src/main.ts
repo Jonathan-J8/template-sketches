@@ -14,7 +14,7 @@ import { OutputPass, RenderPass } from 'three/examples/jsm/Addons.js';
 import onHotReload from './hooks/onHotReload';
 import useThree from './hooks/useThree';
 
-const { scene, renderer, animator, camera, resizer } = useThree();
+const { scene, renderer, animator, camera } = useThree();
 
 // SETUP SCENE
 ColorManagement.enabled = true;
@@ -44,6 +44,7 @@ const renderPass = new RenderPass(scene.instance, camera.instance);
 const output = new OutputPass();
 renderer.addEffect(renderPass, output);
 
+// DISPOSE ON HOT RELOAD
 onHotReload(() => {
 	cube.geometry.dispose();
 	cube.material.dispose();
@@ -53,25 +54,15 @@ onHotReload(() => {
 	gridHelper.material.dispose();
 });
 
-// EVENTS
-const resize = (o: { width: number; height: number; pixelRatio: number }) => {
-	const { width, height, pixelRatio } = o;
-	camera.resize({ width, height });
-	renderer.resize({ width, height, pixelRatio });
-	renderer.update({ scene: scene.instance, camera: camera.instance });
-};
+// ANIMATION LOOP
 const update = (o: { deltaMs: number; deltaTime: number }) => {
 	const { deltaTime } = o;
-	const { renderer, camera, scene } = useThree();
+	const { camera } = useThree();
 	cube.rotation.x += deltaTime * 0.5;
 	cube.rotation.y += deltaTime * 0.5;
-	camera.update({ deltaTime });
+
 	renderPass.camera = camera.instance;
-	renderer.update({ scene: scene.instance, camera: camera.instance, deltaTime });
 };
-resizer.addListener(resize);
-resizer.fire();
 animator.addListener(update);
-animator.play(renderer.instance);
 
 // GUI

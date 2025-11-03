@@ -50,7 +50,7 @@ const camera = new CameraWrapper({
 	Quaternion,
 });
 
-// EVENT LISTENERS
+// MOUSE EVENTS
 const mouse = new PointerTracker({ camera: camera.instance, Raycaster, Plane, Vector2, Vector3 });
 canvas.addEventListener('pointermove', mouse.onMove, false);
 canvas.addEventListener('pointerout', mouse.onMove, false);
@@ -58,6 +58,26 @@ canvas.addEventListener('pointerdown', mouse.onPress, false);
 canvas.addEventListener('pointerup', mouse.onPress, false);
 window.addEventListener('scroll', mouse.onScroll, false);
 window.addEventListener('scrollend', mouse.onScroll, false);
+
+// RESIZE EVENT
+const resize = (o: { width: number; height: number; pixelRatio: number }) => {
+	const { width, height, pixelRatio } = o;
+	camera.resize({ width, height });
+	renderer.resize({ width, height, pixelRatio });
+	renderer.update({ scene: scene.instance, camera: camera.instance });
+};
+resizer.addListener(resize);
+resizer.fire();
+
+// ANIMATION LOOP
+const update = (o: { deltaMs: number; deltaTime: number }) => {
+	const { deltaTime } = o;
+	const { renderer, camera, scene } = useThree();
+	camera.update({ deltaTime });
+	renderer.update({ scene: scene.instance, camera: camera.instance, deltaTime });
+};
+animator.addListener(update);
+animator.play(renderer.instance);
 
 // GUI
 const gui = new GUI();
