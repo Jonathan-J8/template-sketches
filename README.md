@@ -26,23 +26,10 @@ A modern, production-ready template repository for creating WebGL sketches and c
 
 ## 🚀 Quick Start
 
-1. **Clone the repository**
-
     ```bash
     git clone https://github.com/Jonathan-J8/template-sketches.git
     cd template-sketches
-    ```
-
-2. **Install dependencies**
-
-    ```bash
     npm install
-    ```
-
-    This will automatically download the Lygia shader library.
-
-3. **Start development server**
-    ```bash
     npm run dev
     ```
     Open [http://localhost:8080](http://localhost:8080) to view your sketch.
@@ -80,21 +67,6 @@ A modern, production-ready template repository for creating WebGL sketches and c
 | `npm run media`              | Generate OG images/videos             |
 | `npm run lygia`              | Re-download Lygia shader library      |
 
-## 🎨 Shader Development
-
-The template includes the Lygia shader library and GLSL support:
-
-```glsl
-// Import from Lygia library
-#include "lygia/math/PI.glsl"
-#include "lygia/generative/snoise.glsl"
-
-// Use in your shaders
-float noise = snoise(uv * 10.0);
-```
-
-Shaders are automatically minified in production builds.
-
 ## 🎛️ Three.js Development with joeat-utils
 
 This template includes `joeat-utils`, a wrapper around Three.js that simplifies common WebGL development patterns:
@@ -110,33 +82,13 @@ This template includes `joeat-utils`, a wrapper around Three.js that simplifies 
 
 ### Usage Example
 
-```typescript
-import { Animator, CameraWrapper, RendererWrapper, SceneWrapper, Resizer } from 'joeat-utils';
+See [useThree.ts](./src/hooks/useThree.ts) and [main.ts](./src/main.ts) to see how it integrates or replace it with your own Three.js setup.
 
-// The template's [useThree](./src/hooks/useThree.ts) hook demonstrates joeat-utils integration
-const { scene, renderer, animator, camera, resizer } = useThree();
-
-// Create your Three.js objects as usual
-const geometry = new BoxGeometry();
-const material = new MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new Mesh(geometry, material);
-
-scene.instance.add(cube);
-
-// Animator handles the render loop
-animator.add(() => {
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
-});
-```
-
-The `joeat-utils` library is **optional** - you can use vanilla Three.js if you prefer. Check `/src/hooks/useThree.ts` to see how it integrates or replace it with your own Three.js setup.
+The `joeat-utils` library is **optional** - you can use vanilla Three.js if you prefer.
 
 ## 🔧 Configuration
 
 ### Environment Variables
-
-Create a `.env` file in the root directory:
 
 ```env
 VITE_PORT=8080
@@ -145,13 +97,18 @@ VITE_BASE_URL=/
 
 ## 📦 Deployment
 
-Build for production:
+Build for GitHub Pages:
+
+```env
+VITE_BASE_URL=/my-repo/
+VITE_HOST=https://my-username.github.io
+```
 
 ```bash
 npm run build
 ```
 
-The `dist/` folder contains the optimized build ready for deployment to any static hosting service.
+The `dist/` folder contains the optimized build ready for deployment to any static hosting service, as well as GitHub Pages with the automated deployment script [github-pages.yml](./.github/workflows/github-page.yml).
 
 ## 🙏 Acknowledgments
 
