@@ -23,7 +23,7 @@ export default defineConfig({
 
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: 'on-first-retry',
-		video: !process.env.OG_MEDIA ? 'off' : 'on',
+		video: { mode: !process.env.OG_MEDIA ? 'off' : 'on', size: { width: 640, height: 320 } },
 	},
 
 	testIgnore: [!process.env.OG_MEDIA ? '/tests/e2e/media.spec.ts' : ''],
