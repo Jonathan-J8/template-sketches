@@ -8,7 +8,14 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-	globalIgnores(['lygia/', 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'tsconfig.json']),
+	globalIgnores([
+		'lygia/',
+		'dist/',
+		'package-lock.json',
+		'yarn.lock',
+		'pnpm-lock.yaml',
+		'tsconfig.json',
+	]),
 	{
 		files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
 		plugins: { js },

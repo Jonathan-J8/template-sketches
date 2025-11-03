@@ -7,9 +7,8 @@ const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd());
 const DURATION = 1000;
 
 // copy video file to public folder after test
+// eslint-disable-next-line
 test.afterAll(async ({}, testInfo) => {
-	// console.log(testInfo, '<<<<<<<<<<<<<<<<');
-
 	const from = path.resolve(testInfo.outputDir, 'video.webm');
 	const to = path.resolve(`./public/${env.VITE_TITLE}.webm`);
 
